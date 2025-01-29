@@ -9,12 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class ProductController {
 
@@ -31,6 +37,14 @@ public class ProductController {
         return service.getProductById(productId);
     }
     
+    @PostMapping("/products")
+    public void addProduct(@RequestBody Product newProduct) {
+        service.addProduct(newProduct);
+    }
     
+    @PatchMapping("/products/{productId}")
+    public void updateProduct(@RequestBody Product updatedProduct, @PathVariable int id) {
+        service.updateProduct(id,updatedProduct);
+    }
     
 }
