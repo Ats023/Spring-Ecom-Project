@@ -29,5 +29,9 @@ public class ProductService {
     public void updateProduct(int id, Product updatedProduct) {
         repo.save(updatedProduct);
     }
+
+    public void deleteProduct(int productId) {
+        repo.deleteById(productId);
+    }
     
 }
