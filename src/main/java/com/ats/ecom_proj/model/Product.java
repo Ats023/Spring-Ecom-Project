@@ -3,6 +3,9 @@ package com.ats.ecom_proj.model;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,5 +30,7 @@ public class Product {
     private String category;
     private boolean available;
     private int quantity;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
     private Date releaseDate;
 }
