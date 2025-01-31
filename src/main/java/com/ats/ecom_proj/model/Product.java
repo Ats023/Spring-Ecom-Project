@@ -29,7 +29,7 @@ public class Product {
     private BigDecimal price;
     private String category;
     private boolean available;
-    private int quantity;
+    private int stockquantity;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
     private Date releaseDate;
