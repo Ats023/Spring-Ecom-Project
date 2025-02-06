@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -55,5 +56,11 @@ public class ProductController {
     public void deleteProduct(@PathVariable int productId) {
         service.deleteProduct(productId);
     }
+
+    @GetMapping("/products/search")
+    public ResponseEntity<List<Product>> getProductsbyKeyword(@RequestParam String keyword) {
+        return new ResponseEntity<>(service.getProductsbyKeyword(keyword), HttpStatus.OK);
+    }
+    
     
 }

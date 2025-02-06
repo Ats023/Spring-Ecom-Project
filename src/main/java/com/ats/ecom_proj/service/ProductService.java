@@ -33,5 +33,9 @@ public class ProductService {
     public void deleteProduct(int productId) {
         repo.deleteById(productId);
     }
+
+    public List<Product> getProductsbyKeyword(String keyword) {
+        return repo.findProductByNameLike(keyword);
+    }
     
 }
